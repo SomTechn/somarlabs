@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Somar Labs · Software hecho en Honduras</title>
+<meta name="description" content="Apps sencillas para barberías, restaurantes, talleres, pulperías y familias hondureñas. Pedidos, órdenes de servicio y finanzas desde el celular y con WhatsApp.">
+<meta name="theme-color" content="#14181F">
+<meta property="og:title" content="Somar Labs">
+<meta property="og:description" content="Herramientas digitales para el negocio de todos los días.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2314181F'/%3E%3Cpath d='M12 6h8M13 6v7l-6 11a2 2 0 0 0 1.8 3h14.4a2 2 0 0 0 1.8-3l-6-11V6M10 20h12' fill='none' stroke='%23C2461F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --accent:#C2461F;      /* Cambiá este color para cambiar el acento de todo el sitio */
+    --accent-dark:#9E3816;
+    --ink:#14181F;
+    --ink-soft:#3B414C;
+    --paper:#F4F1EA;
+    --line:#D6D1C4;
+    --card:#1F242D;
+    --card-line:#2E3440;
+    --display:'Space Grotesk',system-ui,sans-serif;
+    --body:'IBM Plex Sans',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--ink)}
+  a:hover{color:var(--accent-dark)}
+  h1,h2,h3{font-family:var(--display);margin:0}
+  p{margin:0}
+  .wrap{max-width:1180px;margin:0 auto;padding-left:24px;padding-right:24px}
+  .ic{fill:none;stroke:var(--accent);stroke-linecap:round;stroke-linejoin:round}
+
+  /* Encabezado */
+  .top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding-top:24px;padding-bottom:24px}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .brand-mark{width:36px;height:36px;border-radius:10px;background:var(--ink);display:flex;align-items:center;justify-content:center}
+  .brand-name{font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:-.01em}
+  .nav{display:flex;flex-wrap:wrap;align-items:center;gap:24px;font-size:15px;font-weight:500}
+  .nav a{text-decoration:none}
+  .pill-dark{background:var(--ink);color:var(--paper)!important;padding:10px 18px;border-radius:999px;min-height:44px;display:inline-flex;align-items:center}
+  .pill-dark:hover{background:#000}
+
+  /* Portada */
+  .hero{padding-top:72px;padding-bottom:96px;display:flex;flex-direction:column;gap:28px}
+  .tag{display:inline-flex;align-self:flex-start;align-items:center;gap:8px;border:1px solid var(--ink);border-radius:999px;padding:6px 14px;font-size:14px;font-weight:500}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+  .hero h1{font-weight:700;font-size:clamp(40px,7vw,84px);line-height:1.02;letter-spacing:-.03em;max-width:15ch}
+  .lead{max-width:56ch;font-size:20px;color:var(--ink-soft)}
+  .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+  .btn{text-decoration:none;font-weight:600;padding:14px 24px;border-radius:12px;min-height:48px;display:inline-flex;align-items:center;gap:10px;transition:transform .15s ease,background .15s ease}
+  .btn:hover{transform:translateY(-1px)}
+  .btn-accent{background:var(--accent);color:#fff}
+  .btn-accent:hover{background:var(--accent-dark);color:#fff}
+  .btn-outline{border:1.5px solid var(--ink)}
+
+  /* Productos */
+  .dark{background:var(--ink);color:var(--paper)}
+  .products{padding-top:88px;padding-bottom:88px;display:flex;flex-direction:column;gap:40px}
+  .section-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px}
+  h2{font-size:clamp(32px,4.5vw,52px);line-height:1.05;letter-spacing:-.02em}
+  .muted{max-width:40ch;color:#B9BEC7}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+  .card{background:var(--card);border:1px solid var(--card-line);border-radius:18px;padding:28px;display:flex;flex-direction:column;gap:14px}
+  .card-top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+  .badge{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;padding:4px 10px;border-radius:999px;border:1px solid #5A6170;color:#DDE0E5}
+  .badge.live{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+  .card h3{font-size:26px}
+  .card p{color:#C9CDD4;font-size:16px;flex-grow:1}
+  .card a{color:var(--paper);font-weight:600;font-size:15px}
+  .card a:hover{color:#fff}
+
+  /* Cómo trabajamos */
+  .how{padding-top:96px;padding-bottom:96px;display:flex;flex-direction:column;gap:40px}
+  .how h2{max-width:18ch}
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:32px}
+  .step{display:flex;flex-direction:column;gap:10px;border-top:2px solid var(--ink);padding-top:20px}
+  .num{font-family:var(--display);font-weight:700;color:var(--accent-dark)}
+  .step h3{font-size:22px}
+  .step p{color:var(--ink-soft)}
+
+  /* Contacto */
+  .contact{padding-bottom:96px}
+  .cta{background:var(--accent);color:#fff;border-radius:28px;padding:clamp(32px,6vw,64px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:28px}
+  .cta-text{display:flex;flex-direction:column;gap:12px;flex:1 1 420px}
+  .cta h2{font-size:clamp(30px,4vw,46px)}
+  .cta p{font-size:18px}
+  .btn-ink{background:var(--ink);color:#fff;padding:16px 28px;border-radius:14px;min-height:52px}
+  .btn-ink:hover{background:#000;color:#fff}
+
+  /* Pie */
+  footer{border-top:1px solid var(--line)}
+  .foot{padding-top:28px;padding-bottom:28px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:14px;color:#4A505B}
+
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+
+<header class="wrap top">
+  <a class="brand" href="#" aria-label="Somar Labs, inicio">
+    <span class="brand-mark">
+      <svg class="ic" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M9 3h6"/><path d="M10 3v6l-5 9a2 2 0 0 0 1.7 3h10.6a2 2 0 0 0 1.7-3l-5-9V3"/><path d="M7.5 15h9"/></svg>
+    </span>
+    <span class="brand-name">Somar Labs</span>
+  </a>
+  <nav class="nav" aria-label="Principal">
+    <a href="#productos">Productos</a>
+    <a href="#como">Cómo trabajamos</a>
+    <a href="#contacto" class="pill-dark">Hablemos</a>
+  </nav>
+</header>
+
+<main>
+  <section class="wrap hero">
+    <span class="tag"><span class="dot"></span>Software hecho en Honduras</span>
+    <h1>Herramientas digitales para el negocio de todos los días.</h1>
+    <p class="lead">Creamos apps sencillas para barberías, restaurantes, talleres, pulperías y familias hondureñas. Pedidos, órdenes de servicio y finanzas, directo desde el celular y con WhatsApp.</p>
+    <div class="actions">
+      <a href="#productos" class="btn btn-accent">Ver productos</a>
+      <a href="#contacto" class="btn btn-outline">Escribinos por WhatsApp</a>
+    </div>
+  </section>
+
+  <section id="productos" class="dark">
+    <div class="wrap products">
+      <div class="section-head">
+        <h2>Lo que estamos construyendo</h2>
+        <p class="muted">Cada app resuelve un problema concreto. Algunas ya están en uso; otras están saliendo del laboratorio.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="card-top">
+            <svg class="ic" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/><path d="M7 15h3"/></svg>
+            <span class="badge live">Disponible · beta</span>
+          </div>
+          <h3>Kuenta</h3>
+          <p>Finanzas personales y familiares: presupuestos, metas de ahorro, generosidades e informes, con cuentas compartidas.</p>
+          <a href="https://kuenta-beta.vercel.app" target="_blank" rel="noopener">Abrir Kuenta →</a>
+        </article>
+
+        <article class="card">
+          <div class="card-top">
+            <svg class="ic" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.8" aria-hidden="true"><path d="M4 11h16"/><path d="M6 11V8a6 6 0 0 1 12 0v3"/><path d="M5 11l1.5 9h11L19 11"/></svg>
+            <span class="badge">Funcional</span>
+          </div>
+          <h3>Somar Tap</h3>
+          <p>Menú y pedidos para restaurantes. Cada negocio tiene su propio enlace y el cliente ordena desde el celular.</p>
+          <a href="#contacto">Pedir demo →</a>
+        </article>
+
+        <article class="card">
+          <div class="card-top">
+            <svg class="ic" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.8" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/></svg>
+            <span class="badge">En desarrollo</span>
+          </div>
+          <h3>Somar Orden</h3>
+          <p>Órdenes de servicio para talleres de costura, electrónica o mecánica, con fecha de entrega calculada y aviso por WhatsApp.</p>
+          <a href="#contacto">Quiero probarla →</a>
+        </article>
+
+        <article class="card">
+          <div class="card-top">
+            <svg class="ic" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.8" aria-hidden="true"><path d="M3 9l1.5-5h15L21 9"/><path d="M4 9v11h16V9"/><path d="M3 9h18"/><path d="M10 20v-6h4v6"/></svg>
+            <span class="badge">En desarrollo</span>
+          </div>
+          <h3>Somar Pedidos</h3>
+          <p>Tienda en línea para cualquier comercio: catálogo propio, pedidos que llegan por WhatsApp y planes por suscripción.</p>
+          <a href="#contacto">Quiero probarla →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="como" class="wrap how">
+    <h2>Pensado para cómo funciona un negocio aquí.</h2>
+    <div class="steps">
+      <div class="step">
+        <span class="num">01</span>
+        <h3>Desde el celular</h3>
+        <p>Apps que se instalan desde el navegador. Sin descargas pesadas ni computadora.</p>
+      </div>
+      <div class="step">
+        <span class="num">02</span>
+        <h3>Con WhatsApp</h3>
+        <p>Verificación, avisos y pedidos por el canal que tus clientes ya usan.</p>
+      </div>
+      <div class="step">
+        <span class="num">03</span>
+        <h3>Tus datos, separados</h3>
+        <p>Cada negocio tiene su espacio propio y privado dentro de la plataforma.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="wrap contact">
+    <div class="cta">
+      <div class="cta-text">
+        <h2>¿Tenés un negocio que necesita orden?</h2>
+        <p>Contanos qué hacés y te mostramos la herramienta que mejor encaja.</p>
+      </div>
+      <!-- Reemplazá 504XXXXXXXX por tu número con código de país, sin espacios ni signos -->
+      <a href="https://wa.me/504XXXXXXXX?text=Hola%20Somar%20Labs%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n" class="btn btn-ink" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 21l2.1-5.3A8.5 8.5 0 1 1 21 11.5z"/></svg>
+        Escribir por WhatsApp
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="y">2026</span> Somar Labs · San Pedro Sula, Honduras</span>
+    <!-- Reemplazá con tu correo -->
+    <a href="mailto:hola@tudominio.com">hola@tudominio.com</a>
+  </div>
+</footer>
+
+<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+</body>
+</html>
