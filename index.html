@@ -320,8 +320,7 @@ const GIROS = [
   { id: "restaurante", label: "Restaurante o comedor" },
   { id: "taller",      label: "Taller o reparaciones" },
   { id: "tienda",      label: "Tienda o negocio con catálogo" },
-  { id: "pulperia",    label: "Pulpería o mini súper" },
-  { id: "envios",      label: "Necesito envíos" }
+  { id: "pulperia",    label: "Pulpería o mini súper" }
 ];
 
 const APPS = [
@@ -372,14 +371,6 @@ const APPS = [
     desc: "La app pensada para pulperías y mini súper.",
     feats: ["Hecha para pulperías y mini súper"],
     icono: "canasta"
-  },
-  {
-    id: "express", nombre: "Somar Express", giro: "Envíos y mandados",
-    color: "#F07B2C", rotulo: "#262833", rotuloTx: "#F6C744", toldo: "#262833", alto: 218,
-    estado: "abierto", url: "", giros: ["envios", "tienda", "restaurante", "pulperia"],
-    desc: "Llevamos tus paquetes y pedidos en San Pedro Sula y Choloma. Lo pedís por WhatsApp.",
-    feats: ["Entregas en San Pedro Sula y Choloma", "Ideal para tiendas y restaurantes", "Coordinación por WhatsApp"],
-    icono: "moto", accion: "Pedir un envío"
   }
 ];
 /* ================= fin de la configuración ================= */
@@ -481,7 +472,6 @@ function openSheet(id) {
   cta.textContent = a.label;
   cta.href = a.href;
   if (typeof sheet.showModal === "function") sheet.showModal(); else window.open(a.href, "_blank");
-  if (app.id === "express") ride();
 }
 street.addEventListener("click", (ev) => { const s = ev.target.closest(".store"); if (s) openSheet(s.dataset.id); });
 list.addEventListener("click", (ev) => { const b = ev.target.closest("[data-open]"); if (b) openSheet(b.dataset.open); });
